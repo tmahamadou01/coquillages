@@ -1,0 +1,45 @@
+include ../includes/variables.jade
+
+doctype html
+html(lang="fr")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="x-ua-compatible", content="ie=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		
+
+		block infos
+			title= meta_title
+			meta(name="description" content= meta_descr)
+		
+		
+		block external_css
+			if dev_in_progress
+				link(rel="stylesheet", href="css/dev/main.css")
+			else
+				link(rel="stylesheet", href="css/dist/main.min.css")
+
+
+		block external_fonts
+
+
+		block ie_comments
+			<!--[if lte IE 9]>
+			if dev_in_progress
+				script(src="js/dev/polyfills.js")
+			else
+				script(src="js/dist/polyfills.min.js")
+			<![endif]-->
+
+
+		block favicons
+			link(rel="icon", href="favicon.png")
+
+	body
+		block main_content
+		block scripts
+			script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+			if dev_in_progress
+				script(src="js/dev/scripts.js")
+			else
+				script(src="js/dist/scripts.min.js")
